@@ -1,0 +1,32 @@
+#Finding Frequency of an Element in an Array
+
+def count(arr, k, N):
+    freq=0
+    for i in range(n):
+        if k==arr[i]:
+            freq+=1
+    return freq      
+
+arr=[]
+n=int(input("Enter the number of elements : "))
+for i in range(0, n):
+    ele=int(input())
+    arr.append(ele)
+print(arr)    
+
+k=int(input("Enter the element you want to find : "))
+N=len(arr)
+
+print(count(arr, k, N))
+
+
+OUTPUT:
+Enter the number of elements : 5
+2
+4
+2
+2
+6
+[2, 4, 2, 2, 6]
+Enter the element you want to find : 2
+3
