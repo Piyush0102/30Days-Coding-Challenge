@@ -1,0 +1,41 @@
+#Finding Subarray for a Given Sum
+
+def subarray(arr, sum, N):
+    for i in range(0, N):
+        current_sum=arr[i]
+        if(current_sum==sum):
+            print("Sum found at indexes", i)
+            return
+        else:
+            for j in range(i+1, n):
+                current_sum+=arr[j]
+                if(current_sum==sum):
+                    print("Sum found between indexes", i, "and", j)
+                    return
+    print("No Sub Array Found")        
+
+if __name__=="__main__":
+    arr=[]
+    n=int(input("Enter the number of elements : "))
+    for i in range(0, n):
+        ele=int(input())
+        arr.append(ele)
+    print(arr)    
+    
+    sum=int(input("Enter the sum : "))
+    N=len(arr)
+    
+    subarray(arr, sum, N)    
+
+
+OUTPUT:
+Enter the number of elements : 6
+7
+3
+5
+85
+10
+6
+[7, 3, 5, 85, 10, 6]
+Enter the sum : 90
+Sum found between indexes 2 and 3
