@@ -1,0 +1,41 @@
+#Finding K Largest Element
+
+import sys
+
+def k_largest(arr, arr_size, k):
+    if(arr_size<k):
+        print("Invalid Input")
+        return
+    arr.sort(reverse=True)
+    for i in range(k):
+        print(arr[i], end=" ")
+    
+arr=[]
+n=int(input("Enter the number of elements : "))
+for i in range(0, n):
+    ele=int(input())
+    arr.append(ele)
+print(arr)
+k=int(input("How many larget elements you want to find : "))
+k_largest(arr, n, k)
+
+OUTPUT:
+Enter the number of elements : 3
+456
+78
+4
+[456, 78, 4]
+How many larget elements you want to find : 4
+Invalid Input
+
+Enter the number of elements : 7
+2
+85
+90
+23
+2578
+596
+351
+[2, 85, 90, 23, 2578, 596, 351]
+How many larget elements you want to find : 4
+2578 596 351 90 
