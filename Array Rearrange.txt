@@ -1,0 +1,37 @@
+#Array Rearrange
+
+def rearrange_arr(arr):
+    a = []
+    b = []
+    for x in arr:
+        if x < 0:
+            a.append(x)
+        else:
+            b.append(x)
+    arr.clear()
+    for x in a:
+        arr.append(x)
+    for x in b:
+        arr.append(x)
+
+if __name__ == "__main__":
+    arr=[]
+    n=int(input("Enter the number of elements : "))
+    for i in range(0, n):
+        ele=int(input())
+        arr.append(ele)
+    print("The orginal array is : ", arr)    
+    rearrange_arr(arr)
+    print("The rearranged array is : ", arr)
+
+
+OUTPUT:
+Enter the number of elements : 6
+10
+-5
+7
+-3
+0
+-8
+The orginal array is :  [10, -5, 7, -3, 0, -8]
+The rearranged array is :  [-5, -3, -8, 10, 7, 0]
