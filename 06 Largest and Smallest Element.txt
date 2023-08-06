@@ -1,0 +1,43 @@
+def find(arr):
+    if not arr:
+        return None, None
+
+    smallest = largest = arr[0]
+
+    for num in arr:
+        if num < smallest:
+            smallest = num
+        elif num > largest:
+            largest = num
+
+    return smallest, largest
+
+arr = [
+    [5, 2, 9, 1, 7],
+    [10, 3, 6, 8, 2, 1],
+    [15, 15, 15, 15, 15],
+    [100],
+    [2, 6, 3, 9, 1, 8, 5],
+    [-10, -5, -15, -2, -20],
+    [0, 0, 0, 0, 0, 0, 0],
+    [11, 22, 33, 44, 55],
+    [9, 3, 8, 5, 6, 2, 1, 7, 4],
+    [-5, -10, -2, -20, -1, -15]
+]
+
+for arr_item in arr:
+    smallest_element, largest_element = find(arr_item)
+    print("Largest and Smallest Elements are : ", largest_element, "and", smallest_element)
+
+
+OUTPUT:
+Largest and Smallest Elements are :  9 and 1
+Largest and Smallest Elements are :  10 and 1
+Largest and Smallest Elements are :  15 and 15
+Largest and Smallest Elements are :  100 and 100
+Largest and Smallest Elements are :  9 and 1
+Largest and Smallest Elements are :  -2 and -20
+Largest and Smallest Elements are :  0 and 0
+Largest and Smallest Elements are :  55 and 11
+Largest and Smallest Elements are :  9 and 1
+Largest and Smallest Elements are :  -1 and -20
