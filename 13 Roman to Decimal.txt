@@ -1,0 +1,87 @@
+# Roman to Decimal
+
+def to_decimal(s):
+    ans = 0
+    n = len(s)
+    i = 0
+    while i < n:
+        if s[i] == 'I':
+            if i == n - 1:
+                ans += 1
+                break
+            if s[i + 1] == 'V' or s[i + 1] == 'X':
+                ans -= 1
+            else:
+                ans += 1
+        elif s[i] == 'V':
+            ans += 5
+        elif s[i] == 'X':
+            if i == n - 1:
+                ans += 10
+                break
+            if s[i + 1] == 'L' or s[i + 1] == 'C':
+                ans -= 10
+            else:
+                ans += 10
+        elif s[i] == 'L':
+            ans += 50
+        elif s[i] == 'C':
+            if i == n - 1:
+                ans += 100
+                break
+            if s[i + 1] == 'D' or s[i + 1] == 'M':
+                ans -= 100
+            else:
+                ans += 100
+        elif s[i] == 'D':
+            ans += 500
+        elif s[i] == 'M':
+            ans += 1000
+        else:
+            print("Invalid Input")
+            return -1
+        i += 1
+    return ans
+
+def main():
+    roman_numbers = [
+        "IX",
+        "XXI",
+        "IV",
+        "XLII",
+        "XC",
+        "LXXX",
+        "CXL",
+        "CD",
+        "DCC",
+        "CM"
+    ]
+    
+    results = []
+    for s in roman_numbers:
+        result = to_decimal(s)
+        if result != -1:
+            results.append(result)
+        else:
+            print("Conversion failed for", s)
+    
+    print("Roman to Decimal conversions:")
+    for i, s in enumerate(roman_numbers):
+        print("Roman:", s, "=> Decimal:", results[i])
+
+if __name__ == "__main__":
+    main()
+
+
+OUTPUT:
+Roman to Decimal conversions:
+Roman: IX => Decimal: 9
+Roman: XXI => Decimal: 21
+Roman: IV => Decimal: 4
+Roman: XLII => Decimal: 42
+Roman: XC => Decimal: 90
+Roman: LXXX => Decimal: 80
+Roman: CXL => Decimal: 140
+Roman: CD => Decimal: 400
+Roman: DCC => Decimal: 700
+Roman: CM => Decimal: 900
