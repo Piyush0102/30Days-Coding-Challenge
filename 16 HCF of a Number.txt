@@ -1,0 +1,19 @@
+#HCF of a Number
+
+def hcf(a, b):
+    result=min(a, b)
+    while result:
+        if a%result==0 and b%result==0:
+            break
+        result-=1
+        
+    return result   
+
+if __name__=="__main__":
+    a=15
+    b=20
+    print(f"The HCF of {a} and {b} is {hcf(a, b)}")
+
+
+OUTPUT:
+The HCF of 15 and 20 is 5
