@@ -1,0 +1,45 @@
+# Fibonacci Number
+
+def isFibonacci(N):
+    if N == 0 or N == 1:
+        return True
+    a, b = 0, 1
+    while True:
+        c = a + b
+        a = b
+        b = c
+        if c == N:
+            return True
+        elif c > N:
+            return False
+
+if __name__ == '__main__':
+    n = [5, 8, 13, 21, 34, 1, 2, 3, 55, 89, 144, 987, 4, 6, 9,15,25,7,10,11]
+    for i in n:
+        if isFibonacci(i):
+            print(i, "is a Fibonacci number.")
+        else:
+            print(i, "is not a Fibonacci number.")
+
+
+OUTPUT:
+5 is a Fibonacci number.
+8 is a Fibonacci number.
+13 is a Fibonacci number.
+21 is a Fibonacci number.
+34 is a Fibonacci number.
+1 is a Fibonacci number.
+2 is a Fibonacci number.
+3 is a Fibonacci number.
+55 is a Fibonacci number.
+89 is a Fibonacci number.
+144 is a Fibonacci number.
+987 is a Fibonacci number.
+4 is not a Fibonacci number.
+6 is not a Fibonacci number.
+9 is not a Fibonacci number.
+15 is not a Fibonacci number.
+25 is not a Fibonacci number.
+7 is not a Fibonacci number.
+10 is not a Fibonacci number.
+11 is not a Fibonacci number.
