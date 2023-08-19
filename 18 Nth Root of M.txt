@@ -1,0 +1,35 @@
+# Nth Root of M
+
+import math
+import random
+
+def solve(M,N):
+    
+    prevX = random.randint(1,101) % 10
+
+    acc = 0.001
+
+    diff = 2147483647
+
+    currX=0.0
+
+    while (diff > acc):
+        currX = ((N - 1.0) * prevX +
+            M/pow(prevX, N-1)) /N
+
+        diff = abs(currX - prevX)
+        prevX = currX;
+
+    return currX
+
+
+N = 3
+M = 27
+
+ans = solve(M, N)
+
+print("Root is ", ans)
+
+
+OUTPUT:
+Root is  3.0000000000180935
