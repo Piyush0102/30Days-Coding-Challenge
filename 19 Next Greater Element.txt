@@ -1,0 +1,44 @@
+#Next Greater Element
+
+def next_greater_element(nums):
+    result = [-1] * len(nums)
+    stack = []
+    
+    for i in range(len(nums)):
+        while stack and nums[i] > nums[stack[-1]]:
+            result[stack.pop()] = nums[i]
+        stack.append(i)
+    
+    return result
+
+# Test cases
+test_cases = [
+    [4, 5, 2, 10],
+    [3, 8, 4, 1, 2],
+    [1, 2, 3, 4, 5],
+    [5, 4, 3, 2, 1],
+    [10, 7, 8, 6, 9],
+    [1, 1, 1, 1, 1],
+    [5, 10, 3, 7, 4],
+    [9, 6, 2, 3, 5, 8],
+    [12, 14, 10, 15, 11],
+    [100, 90, 110, 95]
+]
+
+for i, test_case in enumerate(test_cases, 1):
+    output = next_greater_element(test_case)
+    print(f"Test Case {i}: Input = {test_case}, Output = {output}")
+
+
+
+OUTPUT:
+Test Case 1: Input = [4, 5, 2, 10], Output = [5, 10, 10, -1]
+Test Case 2: Input = [3, 8, 4, 1, 2], Output = [8, -1, -1, 2, -1]
+Test Case 3: Input = [1, 2, 3, 4, 5], Output = [2, 3, 4, 5, -1]
+Test Case 4: Input = [5, 4, 3, 2, 1], Output = [-1, -1, -1, -1, -1]
+Test Case 5: Input = [10, 7, 8, 6, 9], Output = [-1, 8, 9, 9, -1]
+Test Case 6: Input = [1, 1, 1, 1, 1], Output = [-1, -1, -1, -1, -1]
+Test Case 7: Input = [5, 10, 3, 7, 4], Output = [10, -1, 7, -1, -1]
+Test Case 8: Input = [9, 6, 2, 3, 5, 8], Output = [-1, 8, 3, 5, 8, -1]
+Test Case 9: Input = [12, 14, 10, 15, 11], Output = [14, 15, 15, -1, -1]
+Test Case 10: Input = [100, 90, 110, 95], Output = [110, 110, -1, -1]
