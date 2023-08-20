@@ -1,0 +1,44 @@
+#Count Remaining Words
+
+def count_remaining_words(sequence):
+    words = sequence.split()
+    stack = []
+
+    for word in words:
+        if stack and stack[-1] == word:
+            stack.pop()
+        else:
+            stack.append(word)
+
+    return len(stack)
+
+test_cases = [
+    "ab aa aa bcd ab",
+    "abc def def abc def",
+    "hello world world hello",
+    "abcd efgh ijkl mnop qrst uvwx",
+    "abc abc",
+    "aaa bbb ccc aaa",
+    "xyz xyz xyx",
+    "abc def ghi jkl mno pqr stu vwx yza bcd",
+    "aaa aaa aaa",
+    "apple apple banana banana cherry cherry"
+]
+
+for i, test_case in enumerate(test_cases, 1):
+    output = count_remaining_words(test_case)
+    print(f"Test Case {i}: Input = '{test_case}', Output = {output}")
+
+
+
+OUTPUT:
+Test Case 1: Input = 'ab aa aa bcd ab', Output = 3
+Test Case 2: Input = 'abc def def abc def', Output = 1
+Test Case 3: Input = 'hello world world hello', Output = 0
+Test Case 4: Input = 'abcd efgh ijkl mnop qrst uvwx', Output = 6
+Test Case 5: Input = 'abc abc', Output = 0
+Test Case 6: Input = 'aaa bbb ccc aaa', Output = 4
+Test Case 7: Input = 'xyz xyz xyx', Output = 1
+Test Case 8: Input = 'abc def ghi jkl mno pqr stu vwx yza bcd', Output = 10
+Test Case 9: Input = 'aaa aaa aaa', Output = 1
+Test Case 10: Input = 'apple apple banana banana cherry cherry', Output = 0
