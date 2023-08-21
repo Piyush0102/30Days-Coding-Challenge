@@ -1,0 +1,81 @@
+#Delete Middle Element
+
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def size(self):
+        return len(self.items)
+
+def delete_middle(stack):
+    mid = stack.size() // 2
+    if stack.is_empty():
+        return
+    elif stack.size() == 1:
+        stack.pop()
+        return
+
+    temp_stack = Stack()
+
+    for _ in range(mid):
+        temp_stack.push(stack.pop())
+
+    stack.pop()
+
+    while not temp_stack.is_empty():
+        stack.push(temp_stack.pop())
+
+test_cases = [
+    [1, 2, 3, 4, 5],
+    [10, 20, 30, 40, 50, 60],
+    [7, 14, 21, 28, 35],
+    [5, 10, 15, 20],
+    [1, 2, 3],
+    [100],
+    [3, 6, 9, 12, 15, 18],
+    [8, 6, 4, 2, 0],
+    [2, 4, 6, 8],
+    [7, 5, 3, 1]
+]
+
+for idx, test_case in enumerate(test_cases):
+    stack = Stack()
+    for item in test_case:
+        stack.push(item)
+    
+    delete_middle(stack)
+    
+    result = []
+    while not stack.is_empty():
+        result.append(stack.pop())
+    
+    result.reverse()
+    print(f"Test Case {idx + 1}: Input: {test_case}, Output: {result}")
+
+
+
+OUTPUT:
+Test Case 1: Input: [1, 2, 3, 4, 5], Output: [1, 2, 4, 5]
+Test Case 2: Input: [10, 20, 30, 40, 50, 60], Output: [10, 20, 40, 50, 60]
+Test Case 3: Input: [7, 14, 21, 28, 35], Output: [7, 14, 28, 35]
+Test Case 4: Input: [5, 10, 15, 20], Output: [5, 15, 20]
+Test Case 5: Input: [1, 2, 3], Output: [1, 3]
+Test Case 6: Input: [100], Output: []
+Test Case 7: Input: [3, 6, 9, 12, 15, 18], Output: [3, 6, 12, 15, 18]
+Test Case 8: Input: [8, 6, 4, 2, 0], Output: [8, 6, 2, 0]
+Test Case 9: Input: [2, 4, 6, 8], Output: [2, 6, 8]
+Test Case 10: Input: [7, 5, 3, 1], Output: [7, 3, 1]
