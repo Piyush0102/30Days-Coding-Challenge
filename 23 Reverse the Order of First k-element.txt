@@ -1,0 +1,41 @@
+#Reverse the Order of First k-elements
+
+from queue import Queue
+
+def reverse_first_k_elements(queue, k):
+    stack = []
+    
+    for _ in range(k):
+        if queue.empty():
+            break
+        stack.append(queue.get())
+    
+    while stack:
+        queue.put(stack.pop())
+    
+    while not queue.empty():
+        stack.append(queue.get())
+    
+    for item in stack:
+        queue.put(item)
+
+if __name__ == "__main__":
+    k = int(input("Enter k: "))
+    elements = input("Enter elements of the queue separated by spaces: ").split()
+    
+    queue = Queue()
+    for element in elements:
+        queue.put(int(element))
+    
+    reverse_first_k_elements(queue, k)
+    
+    print("Queue after reversing the first", k, "elements:")
+    while not queue.empty():
+        print(queue.get(), end=" ")
+
+
+OUTPUT:
+Enter k: 3
+Enter elements of the queue separated by spaces: 1 2 3 4 5 6
+Queue after reversing the first 3 elements:
+4 5 6 3 2 1 
