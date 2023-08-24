@@ -1,0 +1,83 @@
+#Finding First Negative Integer
+
+def find_first_negative_in_window(arr, k):
+    n = len(arr)
+    result = []
+
+    for i in range(n - k + 1):
+        window = arr[i:i+k]
+        negative_found = False
+
+        for num in window:
+            if num < 0:
+                result.append(num)
+                negative_found = True
+                break
+        
+        if not negative_found:
+            result.append(0)
+
+    return result
+
+test_cases = [
+    ([-8, 2, 3, -6, 10], 2),
+    ([1, -2, 3, -4, 5], 3),
+    ([0, 0, 0, 0, 0, 0], 4),
+    ([5, -3, 2, -1, 8, -7, 6], 5),
+    ([-1, -2, -3, -4, -5], 2),
+    ([2, 4, 6, 8, 10], 1),
+    ([-5, 0, 7, -3, 2, -8], 4),
+    ([1, 2, 3, 4, 5], 5),
+    ([-10, -15, -20, -25], 3),
+    ([9, -1, -5, 3, 2], 2)
+]
+
+for array, k in test_cases:
+    result = find_first_negative_in_window(array, k)
+    print("Input Array:", array)
+    print("k =", k)
+    print("Expected Output:", result)
+    print()
+
+
+
+OUTPUT:
+Input Array: [-8, 2, 3, -6, 10]
+k = 2
+Expected Output: [-8, 0, -6, -6]
+
+Input Array: [1, -2, 3, -4, 5]
+k = 3
+Expected Output: [-2, -2, -4]
+
+Input Array: [0, 0, 0, 0, 0, 0]
+k = 4
+Expected Output: [0, 0, 0]
+
+Input Array: [5, -3, 2, -1, 8, -7, 6]
+k = 5
+Expected Output: [-3, -3, -1]
+
+Input Array: [-1, -2, -3, -4, -5]
+k = 2
+Expected Output: [-1, -2, -3, -4]
+
+Input Array: [2, 4, 6, 8, 10]
+k = 1
+Expected Output: [0, 0, 0, 0, 0]
+
+Input Array: [-5, 0, 7, -3, 2, -8]
+k = 4
+Expected Output: [-5, -3, -3]
+
+Input Array: [1, 2, 3, 4, 5]
+k = 5
+Expected Output: [0]
+
+Input Array: [-10, -15, -20, -25]
+k = 3
+Expected Output: [-10, -15]
+
+Input Array: [9, -1, -5, 3, 2]
+k = 2
+Expected Output: [-1, -1, -5, 0]
